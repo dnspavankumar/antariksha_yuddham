@@ -103,11 +103,11 @@ export async function initializeBabylonApp(options: InitializeBabylonAppOptions)
         engine.compatibilityMode = false;
     } else {
         const badOS = /iPad/i.test(navigator.userAgent) || /iPhone/i.test(navigator.userAgent);
-        engine = new Engine(canvas, !badOS, { disableWebGL2Support: false, powerPreference: "high-performance", doNotHandleContextLost: false, audioEngine: true, disableAudio: false });
+        engine = new Engine(canvas, !badOS, { disableWebGL2Support: false, powerPreference: "high-performance", doNotHandleContextLost: false, audioEngine: true });
 
         // Disable the Babylon.js watermark
         engine.hideLoadingUI();
-        engine.loadingScreen = null;
+        // Hide the loading screen without setting to null
         engine.displayLoadingUI = function() {};
 
         // Remove the Babylon.js branding
